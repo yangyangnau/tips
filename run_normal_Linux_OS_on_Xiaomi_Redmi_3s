@@ -1,0 +1,44 @@
+# Target: run normal GNU/Linux OS on Xiaomi Redmi 3s (Qualcomm Snapdragon 430 msm8937) (not yet)
+
+# https://developer.qualcomm.com/download/db410c/linux-android-software-build-and-installation-guide.pdf
+# https://wiki.codeaurora.org/xwiki/bin/QAEP/
+# https://wiki.codeaurora.org/xwiki/bin/QAEP/release
+# June 23, 2016 LA.UM.5.3.1-01010-89xx.0 msm8937_64 LA.UM.5.3.1-01010-89xx.0.xml 06.00.01
+
+#==============================
+# 1. Downlaod QAEP (msm8937)
+
+echo 'export PATH=~/bin:$PATH' >> ~/.bashrc
+. ~/.bashrc
+
+mkdir -p ~/bin
+wget -c https://storage.googleapis.com/git-repo-downloads/repo
+mv repo ~/bin
+
+mkdir -p android-source/qaep
+cd android-source/qaep
+
+repo init -u git://codeaurora.org/platform/manifest.git -b release -m LA.UM.5.3.1-01010-89xx.0.xml --repo-url=git://codeaurora.org/tools/repo.git
+# repo init -u git://codeaurora.org/platform/manifest.git -b release -m LA.UM.5.3.1-01010-89xx.0.xml
+# repo init -u git://codeaurora.org/platform/manifest.git -b release -m LA.UM.5.3.1-01010-89xx.0.xml --depth=1
+# repo forall -c git gc
+# repo sync --current-branch --force-sync --no-clone-bundle
+# repo sync --current-branch -f --force-sync --no-clone-bundle -j3
+repo sync -f -j3
+repo sync -f
+
+#==============================
+# 2. Get patch-linux-3.18.24-to-qaep_kernel_msm8937.xz
+
+wget -c https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.24.tar.xz
+wget -c https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.24.tar.sign
+
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 6092693E
+xzcat linux-3.18.24.tar.xz | gpg --verify linux-3.18.24.tar.sign -
+
+tar -xvf linux-3.18.24.tar.xz
+mv linux-3.18.24 linux-3.18.24-qaep_msm8937
+cd linux-3.18.24-qaep_msm8937
+xzcat ../patch-linux-3.18.24-to-qaep_kernel_msm8937.bzip2 | patch -p1
+
+
