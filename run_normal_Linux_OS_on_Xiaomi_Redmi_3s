@@ -39,6 +39,6 @@ xzcat linux-3.18.24.tar.xz | gpg --verify linux-3.18.24.tar.sign -
 tar -xvf linux-3.18.24.tar.xz
 mv linux-3.18.24 linux-3.18.24-qaep_msm8937
 cd linux-3.18.24-qaep_msm8937
-xzcat ../patch-linux-3.18.24-to-qaep_kernel_msm8937.bzip2 | patch -p1
+xzcat ../patch-linux-3.18.24-to-qaep_kernel_msm8937.xz | patch -p1
 
 
