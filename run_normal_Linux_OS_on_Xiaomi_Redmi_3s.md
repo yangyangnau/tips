@@ -7,7 +7,7 @@ by Yangyangnau
 
 ##Xiaomi hasn't release Redmi 3s kernel to us. It's SHAME.(2016.08.27)
 
-I want run normal GNU/Linux OS(debian gentoo ...) on Xiaomi Redmi 3s without chroot and virtual machine, and get all hardware working with libhybird perhaps.
+I want run normal GNU/Linux OS(debian gentoo ...) on Xiaomi Redmi 3s without chroot and virtual machine, and get all hardware working with libhybris perhaps.
 So I am try porting QAEP (msm8937) kernel to Redmi 3s.
 
 **Years ago, I had run debian sid on an android TV with android in a chroot env.**
@@ -75,9 +75,9 @@ repo sync -f
 
 ## 1'. Don't  want download full QAEP, here is some patch files.
 
-patch-linux-3.18.20-to-qaep_msm8937-2016.05.15-LA.UM.5.1-04010-8x37.0.xz [link](https://github.com/yangyangnau/tips/raw/master/patch-linux-3.18.20-to-qaep_msm8937-2016.05.15-LA.UM.5.1-04010-8x37.0.xz)
+patch-linux-3.18.20-to-qaep_msm8937-2016.05.15-LA.UM.5.1-04010-8x37.0.xz [link](https://github.com/yangyangnau/tips/raw/master/patch/patch-linux-3.18.20-to-qaep_msm8937-2016.05.15-LA.UM.5.1-04010-8x37.0.xz)
 
-patch-linux-3.18.24-to-qaep_msm8937-2016.06.23-LA.UM.5.3.1-01010-89xx.0.xz [link](https://github.com/yangyangnau/tips/raw/master/patch-linux-3.18.24-to-qaep_msm8937-2016.06.23-LA.UM.5.3.1-01010-89xx.0.xz)
+patch-linux-3.18.24-to-qaep_msm8937-2016.06.23-LA.UM.5.3.1-01010-89xx.0.xz [link](https://github.com/yangyangnau/tips/raw/master/patch/patch-linux-3.18.24-to-qaep_msm8937-2016.06.23-LA.UM.5.3.1-01010-89xx.0.xz)
 
 ```
 wget -c https://cdn.kernel.org/pub/linux/kernel/v3.x/linux-3.18.20.tar.xz
