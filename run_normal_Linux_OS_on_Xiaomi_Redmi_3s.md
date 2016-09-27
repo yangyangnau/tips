@@ -62,7 +62,8 @@ mv repo ~/bin
 mkdir -p android-source/qaep
 cd android-source/qaep
 
-repo init -u git://codeaurora.org/platform/manifest.git -b release -m LA.UM.5.1-04210-8x37.0.xml --repo-url=git://codeaurora.org/tools/repo.git
+repo init -u git://codeaurora.org/platform/manifest.git -b release -m LA.UM.5.3-01110-8x37.0.xml --repo-url=git://codeaurora.org/tools/repo.git
+#repo init -u git://codeaurora.org/platform/manifest.git -b release -m LA.UM.5.1-04210-8x37.0.xml --repo-url=git://codeaurora.org/tools/repo.git
 # repo init -u git://codeaurora.org/platform/manifest.git -b release -m LA.UM.5.3.1-01010-89xx.0.xml --repo-url=git://codeaurora.org/tools/repo.git
 # repo init -u git://codeaurora.org/platform/manifest.git -b release -m LA.UM.5.3.1-01010-89xx.0.xml
 # repo init -u git://codeaurora.org/platform/manifest.git -b release -m LA.UM.5.3.1-01010-89xx.0.xml --depth=1
@@ -74,6 +75,8 @@ repo sync -f
 ```
 
 ## 1'. Don't  want download full QAEP, here is some patch files.
+
+patch-linux-3.18.20-to-qaep_msm8937-2016.02.25-LA.UM.5.3-01110-8x37.0.xz [link](https://github.com/yangyangnau/tips/raw/master/patch/patch-linux-3.18.20-to-qaep_msm8937-2016.02.25-LA.UM.5.3-01110-8x37.0.xz)
 
 patch-linux-3.18.20-to-qaep_msm8937-2016.05.15-LA.UM.5.1-04010-8x37.0.xz [link](https://github.com/yangyangnau/tips/raw/master/patch/patch-linux-3.18.20-to-qaep_msm8937-2016.05.15-LA.UM.5.1-04010-8x37.0.xz)
 
@@ -87,8 +90,8 @@ gpg --keyserver hkp://keys.gnupg.net --recv-keys 6092693E
 xzcat linux-3.18.20.tar.xz | gpg --verify linux-3.18.20.tar.sign -
 
 tar -xvf linux-3.18.20.tar.xz
-mv linux-3.18.20 linux-3.18.20-qaep_msm8937-2016.05.15-LA.UM.5.1-04010-8x37.0
-cd linux-3.18.20-qaep_msm8937-2016.05.15-LA.UM.5.1-04010-8x37.0
-xzcat ../patch-linux-3.18.20-to-qaep_msm8937-2016.05.15-LA.UM.5.1-04010-8x37.0.xz | patch -p1
+mv linux-3.18.20 linux-3.18.20-qaep_msm8937-2016.02.25-LA.UM.5.3-01110-8x37.0
+cd linux-3.18.20-qaep_msm8937-2016.02.25-LA.UM.5.3-01110-8x37.0
+xzcat ../patch-linux-3.18.20-to-qaep_msm8937-2016.02.25-LA.UM.5.3-01110-8x37.0.xz | patch -p1
 ```
 
